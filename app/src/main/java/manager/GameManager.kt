@@ -35,7 +35,7 @@ class GameManager(private val activity: Activity) {
     private var gameLoopJob: Job? = null
     private var currentToast: Toast? = null
 
-    private val logic = GameLogic(numRows, numCols)
+    private val logic = GameLogic(numCols)
     private val vibrate = VibrationUtils
 
     fun initGame() {
@@ -46,8 +46,8 @@ class GameManager(private val activity: Activity) {
 
     private fun initViews() {
         jewish = activity.findViewById(R.id.jewish)
-        Glide.with(activity).asGif().load(R.drawable.jewish).into(jewish)
-
+        Glide.with(activity.applicationContext).asGif().load(R.drawable.jewish).into(jewish)
+        
         hearts = arrayOf(
             activity.findViewById(R.id.main_IMG_heart0),
             activity.findViewById(R.id.main_IMG_heart1),

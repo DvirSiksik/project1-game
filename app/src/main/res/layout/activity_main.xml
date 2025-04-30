@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#FFFFFF">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="@dimen/default_margin"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/default_margin">
+
+            <!-- Score on the left -->
+            <TextView
+                android:id="@+id/main_LBL_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Score: 0"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_alignParentStart="true" />
+
+            <!-- Hearts on the right -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/main_IMG_heart2"
+                    android:layout_width="@dimen/heart_dimen"
+                    android:layout_height="@dimen/heart_dimen"
+                    app:srcCompat="@drawable/heart"
+                    android:layout_marginStart="4dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/main_IMG_heart1"
+                    android:layout_width="@dimen/heart_dimen"
+                    android:layout_height="@dimen/heart_dimen"
+                    app:srcCompat="@drawable/heart"
+                    android:layout_marginStart="4dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/main_IMG_heart0"
+                    android:layout_width="@dimen/heart_dimen"
+                    android:layout_height="@dimen/heart_dimen"
+                    app:srcCompat="@drawable/heart"
+                    android:layout_marginStart="4dp"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/default_margin"
+        android:columnCount="3"
+        android:rowCount="5">
+
+        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_00"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+
+        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_01"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+
+        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_02"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_10"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_11"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_12"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_20"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_21"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_22"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_30"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_31"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_32"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+
+        <!-- jewish -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/jewish"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/jewish"
+            android:layout_margin="@dimen/defult_margin"
+            android:layout_column="1"/>
+
+    </GridLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/defult_margin">
+        <!-- Left Button -->
+        <Button
+            android:id="@+id/btnLeft"
+            android:text="◀"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_width="@dimen/defult_margin"
+            android:layout_height="0dp"/>
+
+        <!-- Right Button -->
+        <Button
+            android:id="@+id/btnRight"
+            android:text="▶"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</RelativeLayout>

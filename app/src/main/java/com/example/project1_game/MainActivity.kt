@@ -16,13 +16,19 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        gameManager = GameManager(this)
+
+        val useSensorMode = intent.getBooleanExtra("USE_SENSOR_MODE", false)
+        val isFastMode = intent.getBooleanExtra("FAST_MODE", false)
+
+
+        gameManager = GameManager(this, useSensorMode, isFastMode)
         gameManager.initGame()
     }
 

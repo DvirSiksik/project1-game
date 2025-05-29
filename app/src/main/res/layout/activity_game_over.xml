@@ -12,20 +12,19 @@
         android:textStyle="bold"
         android:textColor="#000"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp" />
+        android:layout_marginTop="150dp" />
 
     <TextView
         android:id="@+id/txtRecruitment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text= "בהצלחה בגיוס!\nתאריך גיוסך הוא:\n           מחר"
+        android:text="בהצלחה בגיוס!\nתאריך גיוסך הוא:\n           מחר"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#000"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/txtGameOver"
         android:layout_marginTop="20dp" />
-
 
     <TextView
         android:id="@+id/txtScore"
@@ -37,6 +36,8 @@
         android:layout_below="@id/txtRecruitment"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
+
+
     <Button
         android:id="@+id/btnRestart"
         android:layout_width="wrap_content"
@@ -46,12 +47,32 @@
         android:layout_below="@id/txtScore"
         android:layout_marginTop="40dp" />
 
+
+    <Button
+        android:id="@+id/btnMainMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Menu"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnRestart"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnHighScores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High Scores"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnMainMenu"
+        android:layout_marginTop="16dp"/>
+
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/jewish"
+        android:id="@+id/player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:layout_below="@id/btnRestart"
-        android:src="@drawable/jewish" />
+        android:layout_below="@id/btnHighScores"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/player" />
+
 </RelativeLayout>

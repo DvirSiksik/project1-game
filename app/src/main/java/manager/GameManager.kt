@@ -1,7 +1,14 @@
 package manager
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
+import android.view.View
+import android.media.MediaPlayer
 import android.widget.*
 import com.bumptech.glide.Glide
 import com.example.project1_game.GameOverActivity
@@ -10,10 +17,15 @@ import kotlinx.coroutines.*
 import logic.GameLogic
 import utils.VibrationUtils
 
-class GameManager(private val activity: Activity) {
+class GameManager(
+    private val activity: Activity,
+    private val useSensorMode: Boolean,
+    private val isFastMode: Boolean
+){
 
     private lateinit var grid: Array<Array<ImageView>>
-    private lateinit var jewish: ImageView
+    private lateinit var coinGrid: Array<Array<ImageView>>
+    private lateinit var player: ImageView
     private lateinit var hearts: Array<ImageView>
     private lateinit var scoreText: TextView
 
@@ -21,15 +33,12 @@ class GameManager(private val activity: Activity) {
     private var lives = 3
     private var score = 0
 
-    private val numRows = 4
-    private val numCols = 3
+    private val numRows = 7
+    private val numCols = 5
 
-    private var dropInterval = 1500L
-    private var dropSpeedPerRowDelay = 300L
-    private val minDropInterval = 300L
-    private val minRowDelay = 80L
-    private val dropAcceleration = 50L
-    private val rowDelayAcceleration = 20L
+    private var dropInterval = if (isFastMode) 700L else 1500L
+    private var dropSpeedPerRowDelay = if (isFastMode) 150L else 300L
+
 
     private var isGameRunning = true
     private var gameLoopJob: Job? = null
@@ -38,16 +47,34 @@ class GameManager(private val activity: Activity) {
     private val logic = GameLogic(numCols)
     private val vibrate = VibrationUtils
 
+    // Sensor
+    private lateinit var sensorManager: SensorManager
+    private var accelerometer: Sensor? = null
+
+    private var hitSound: MediaPlayer? = null
+    private var coinSound: MediaPlayer? = null
+
+    private enum class TiltState { LEFT, CENTER, RIGHT }
+    private var lastTilt: TiltState = TiltState.CENTER
+
     fun initGame() {
         initViews()
-        setupControls()
+        if (useSensorMode) {
+            setupSensorControls()
+            hideControlButtons()
+        } else {
+            setupButtonControls()
+        }
         startObstacleLoop()
     }
 
     private fun initViews() {
-        jewish = activity.findViewById(R.id.jewish)
-        Glide.with(activity.applicationContext).asGif().load(R.drawable.jewish).into(jewish)
-        
+        player = activity.findViewById(R.id.player)
+        Glide.with(activity.applicationContext).asGif().load(R.drawable.player).into(player)
+
+        hitSound = MediaPlayer.create(activity, R.raw.hit_sound)
+        coinSound = MediaPlayer.create(activity, R.raw.coin_sound)
+
         hearts = arrayOf(
             activity.findViewById(R.id.main_IMG_heart0),
             activity.findViewById(R.id.main_IMG_heart1),
@@ -65,10 +92,25 @@ class GameManager(private val activity: Activity) {
             }
         }
 
+        coinGrid = Array(numRows) { row ->
+            Array(numCols) { col ->
+                val resId = activity.resources.getIdentifier("main_COIN_${row}${col}", "id", activity.packageName)
+                val imageView = activity.findViewById<ImageView>(resId)
+
+                Glide.with(activity.applicationContext)
+                    .asGif()
+                    .load(R.drawable.coin)
+                    .into(imageView)
+
+                imageView.visibility = View.GONE
+                imageView
+            }
+        }
+
         updatePlayerPosition()
     }
 
-    private fun setupControls() {
+    private fun setupButtonControls() {
         activity.findViewById<Button>(R.id.btnLeft).setOnClickListener {
             if (currentLane > 0) {
                 currentLane--
@@ -84,24 +126,75 @@ class GameManager(private val activity: Activity) {
         }
     }
 
+    private fun hideControlButtons() {
+        activity.findViewById<Button>(R.id.btnLeft).visibility = View.GONE
+        activity.findViewById<Button>(R.id.btnRight).visibility = View.GONE
+    }
+
+    private fun setupSensorControls() {
+        sensorManager = activity.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+
+        accelerometer?.let {
+            sensorManager.registerListener(sensorListener, it, SensorManager.SENSOR_DELAY_GAME)
+        } ?: run {
+            Toast.makeText(activity, "No accelerometer found!", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private val sensorListener = object : SensorEventListener {
+        override fun onSensorChanged(event: SensorEvent?) {
+            event ?: return
+            val x = event.values[0]
+
+            val newTilt = when {
+                x > 4 -> TiltState.LEFT
+                x < -4 -> TiltState.RIGHT
+                else -> TiltState.CENTER
+            }
+
+            if (newTilt != lastTilt) {
+                lastTilt = newTilt
+                when (newTilt) {
+                    TiltState.LEFT -> {
+                        if (currentLane > 0) {
+                            currentLane--
+                            updatePlayerPosition()
+                        }
+                    }
+                    TiltState.RIGHT -> {
+                        if (currentLane < numCols - 1) {
+                            currentLane++
+                            updatePlayerPosition()
+                        }
+                    }
+                    TiltState.CENTER -> {}
+                }
+            }
+        }
+
+        override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
+    }
+
     private fun updatePlayerPosition() {
-        val params = jewish.layoutParams as GridLayout.LayoutParams
-        params.columnSpec = GridLayout.spec(currentLane)
-        jewish.layoutParams = params
+        val params = player.layoutParams as androidx.gridlayout.widget.GridLayout.LayoutParams
+        params.columnSpec = androidx.gridlayout.widget.GridLayout.spec(currentLane)
+        player.layoutParams = params
     }
 
     private fun startObstacleLoop() {
         gameLoopJob = CoroutineScope(Dispatchers.Main).launch {
             while (isGameRunning) {
-                dropObstacle()
+                dropEntity()
                 delay(dropInterval)
             }
         }
     }
 
-    private fun dropObstacle() {
+    private fun dropEntity() {
         if (!isGameRunning) return
         val col = logic.getRandomColumn()
+        val isCoin = (0..3).random() == 0 // 25% chance
 
         for (row in 0 until numRows) {
             CoroutineScope(Dispatchers.Main).launch {
@@ -110,13 +203,27 @@ class GameManager(private val activity: Activity) {
 
                 if (row > 0) {
                     logic.clearCell(grid[row - 1][col])
+                    coinGrid[row - 1][col].visibility = View.GONE
                 }
 
-                logic.showObstacle(grid[row][col])
+                if (isCoin) {
+                    coinGrid[row][col].visibility = View.VISIBLE
+                } else {
+                    logic.showObstacle(grid[row][col])
+                }
 
                 if (row == numRows - 1 && col == currentLane) {
-                    vibrate.vibrate(activity)
-                    loseLife()
+                    if (isCoin) {
+                        coinGrid[row][col].visibility = View.GONE
+                        coinSound?.start()
+                        increaseScore()
+                    } else {
+                        hitSound?.start()
+                        vibrate.vibrate(activity)
+                        loseLife()
+                    }
+                } else if (row == numRows - 1 && isCoin) {
+                    coinGrid[row][col].visibility = View.GONE
                 } else if (row == numRows - 1) {
                     increaseScore()
                 }
@@ -127,32 +234,22 @@ class GameManager(private val activity: Activity) {
             delay(numRows * dropSpeedPerRowDelay)
             if (isGameRunning) {
                 logic.clearCell(grid[numRows - 1][col])
+                coinGrid[numRows - 1][col].visibility = View.GONE
             }
         }
     }
-
     private fun increaseScore() {
         score++
         showToast("Good Job! score: $score")
         scoreText.text = "Score: $score"
-        updateDifficulty()
     }
 
-    private fun updateDifficulty() {
-        if (score % 5 == 0) {
-            if (dropInterval > minDropInterval) {
-                dropInterval -= dropAcceleration
-            }
-            if (dropSpeedPerRowDelay > minRowDelay) {
-                dropSpeedPerRowDelay -= rowDelayAcceleration
-            }
-        }
-    }
+
 
     private fun loseLife() {
         if (lives > 0) {
             lives--
-            hearts[lives].visibility = android.view.View.INVISIBLE
+            hearts[lives].visibility = View.INVISIBLE
             showToast("Ouch! Lives left: $lives")
 
             if (lives == 0) {
@@ -161,6 +258,7 @@ class GameManager(private val activity: Activity) {
 
                 val intent = Intent(activity, GameOverActivity::class.java)
                 intent.putExtra("SCORE", score)
+                intent.putExtra("USE_SENSOR_MODE", useSensorMode)
                 activity.startActivity(intent)
                 activity.finish()
             }
@@ -175,5 +273,12 @@ class GameManager(private val activity: Activity) {
 
     fun cleanup() {
         gameLoopJob?.cancel()
+        hitSound?.release()
+        coinSound?.release()
+        hitSound = null
+        coinSound = null
+        if (useSensorMode) {
+            sensorManager.unregisterListener(sensorListener)
+        }
     }
 }

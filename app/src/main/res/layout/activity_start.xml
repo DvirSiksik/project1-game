@@ -1,24 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:padding="24dp"
+    android:background="#FFFFFF"
+    tools:context=".StartActivity">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/jewish"
+
+    <ImageView
+        android:id="@+id/player"
         android:layout_width="wrap_content"
         android:layout_height="133dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
-        android:src="@drawable/jewish" />
+        android:src="@drawable/player" />
+
+
+    <CheckBox
+        android:id="@+id/checkbox_sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tilt control"
+        android:textSize="16sp"
+        android:layout_below="@id/player"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"/>
+
+
+    <CheckBox
+        android:id="@+id/checkbox_speed_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Normal Speed"
+        android:layout_below="@id/checkbox_sensor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:checked="true" />
+
+
+    <CheckBox
+        android:id="@+id/checkbox_speed_fast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fast Speed"
+        android:layout_below="@id/checkbox_speed_normal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
 
     <Button
-        android:id="@+id/start_btn_play"
+        android:id="@+id/start_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start Game"
         android:textSize="20sp"
-        android:layout_below="@id/jewish"
+        android:layout_below="@id/checkbox_speed_fast"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp" />
+
+
+    <Button
+        android:id="@+id/high_scores_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/start_btn"
+        android:textSize="20sp"
+        android:text="High Scores"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
 </RelativeLayout>

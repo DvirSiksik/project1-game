@@ -66,15 +66,21 @@
         </RelativeLayout>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <GridLayout
+    <androidx.gridlayout.widget.GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="@dimen/default_margin"
-        android:columnCount="3"
-        android:rowCount="5">
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:columnCount="5"
+        app:rowCount="7">
 
-        <!-- Obstacle (example) -->
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_00"
             android:layout_width="@dimen/matrix_cell_size"
@@ -82,95 +88,685 @@
             android:src="@drawable/obstacle"
             android:layout_margin="@dimen/defult_margin"/>
 
-        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_00"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_01"
             android:layout_width="@dimen/matrix_cell_size"
             android:layout_height="@dimen/matrix_cell_size"
             android:src="@drawable/obstacle"
             android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_01"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
 
-        <!-- Obstacle (example) -->
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_02"
             android:layout_width="@dimen/matrix_cell_size"
             android:layout_height="@dimen/matrix_cell_size"
             android:src="@drawable/obstacle"
             android:layout_margin="@dimen/defult_margin"/>
-        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_02"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_03"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_03"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_04"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_04"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_10"
             android:layout_width="@dimen/matrix_cell_size"
             android:layout_height="@dimen/matrix_cell_size"
             android:src="@drawable/obstacle"
             android:layout_margin="@dimen/defult_margin"/>
-        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_10"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_11"
             android:layout_width="@dimen/matrix_cell_size"
             android:layout_height="@dimen/matrix_cell_size"
             android:src="@drawable/obstacle"
             android:layout_margin="@dimen/defult_margin"/>
-        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_11"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_12"
             android:layout_width="@dimen/matrix_cell_size"
             android:layout_height="@dimen/matrix_cell_size"
             android:src="@drawable/obstacle"
             android:layout_margin="@dimen/defult_margin"/>
-        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_12"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_13"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_13"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_14"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_14"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_20"
             android:layout_width="@dimen/matrix_cell_size"
             android:layout_height="@dimen/matrix_cell_size"
             android:src="@drawable/obstacle"
             android:layout_margin="@dimen/defult_margin"/>
-        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_20"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_21"
             android:layout_width="@dimen/matrix_cell_size"
             android:layout_height="@dimen/matrix_cell_size"
             android:src="@drawable/obstacle"
             android:layout_margin="@dimen/defult_margin"/>
-        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_21"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_22"
             android:layout_width="@dimen/matrix_cell_size"
             android:layout_height="@dimen/matrix_cell_size"
             android:src="@drawable/obstacle"
             android:layout_margin="@dimen/defult_margin"/>
-        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_22"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_23"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_23"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_24"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_24"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_30"
             android:layout_width="@dimen/matrix_cell_size"
             android:layout_height="@dimen/matrix_cell_size"
             android:src="@drawable/obstacle"
             android:layout_margin="@dimen/defult_margin"/>
-        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_30"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_31"
             android:layout_width="@dimen/matrix_cell_size"
             android:layout_height="@dimen/matrix_cell_size"
             android:src="@drawable/obstacle"
             android:layout_margin="@dimen/defult_margin"/>
-        <!-- Obstacle (example) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_31"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_32"
             android:layout_width="@dimen/matrix_cell_size"
             android:layout_height="@dimen/matrix_cell_size"
             android:src="@drawable/obstacle"
             android:layout_margin="@dimen/defult_margin"/>
-
-        <!-- jewish -->
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/jewish"
+            android:id="@+id/main_COIN_32"
             android:layout_width="@dimen/matrix_cell_size"
             android:layout_height="@dimen/matrix_cell_size"
-            android:src="@drawable/jewish"
+            android:src="@drawable/coin"
             android:layout_margin="@dimen/defult_margin"
-            android:layout_column="1"/>
+            android:visibility="gone" />
+        </FrameLayout>
 
-    </GridLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_33"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_33"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_34"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_34"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_40"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_40"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_41"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_41"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_42"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_42"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_43"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_43"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_44"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_44"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_50"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_50"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_51"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_51"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_52"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_52"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_53"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_53"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_54"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_54"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_60"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_60"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_61"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_61"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_62"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_62"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_63"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_63"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- Obstacle -->
+        <FrameLayout
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:layout_margin="@dimen/defult_margin">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_64"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/obstacle"
+            android:layout_margin="@dimen/defult_margin"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_COIN_64"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/coin"
+            android:layout_margin="@dimen/defult_margin"
+            android:visibility="gone" />
+        </FrameLayout>
+        <!-- player -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/player"
+            android:layout_width="@dimen/matrix_cell_size"
+            android:layout_height="@dimen/matrix_cell_size"
+            android:src="@drawable/player"
+            android:layout_margin="@dimen/defult_margin"
+            app:layout_column="1"/>
+
+    </androidx.gridlayout.widget.GridLayout>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"

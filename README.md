@@ -66,7 +66,7 @@ project1_game/
 
 1. Clone the repository:
    ```bash
-  git clone https://github.com/DvirSsiksik/project1_game.git
+  git clone [https://github.com/DvirSsiksik/project1_game.git](https://github.com/DvirSiksik/project1-game)
   
 2.	Open in Android Studio.
 3.	Build and run the project on:

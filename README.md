@@ -27,12 +27,16 @@ An Android-based **endless runner game** where the player moves between 5 lanes,
 
 Icon:
 <img width="62" alt="Screenshot 2025-06-01 at 10 56 34" src="https://github.com/user-attachments/assets/e84751e4-3457-4cb9-b1e4-68630bf02522" />
+
 Main Menu:
 <img width="280" alt="Screenshot 2025-06-01 at 10 56 45" src="https://github.com/user-attachments/assets/33b1803b-20e7-4906-9f37-0c5d18dee9d4" />
+
 High Score:
 <img width="286" alt="Screenshot 2025-06-01 at 10 57 00" src="https://github.com/user-attachments/assets/25b17dcd-3383-408c-b54f-59492d85c69a" />
+
 Game:
 <img width="284" alt="Screenshot 2025-06-01 at 10 57 16" src="https://github.com/user-attachments/assets/d14a645f-10c8-4471-a9a1-3d2091763e23" />
+
 GameOver:
 <img width="304" alt="Screenshot 2025-06-01 at 10 57 28" src="https://github.com/user-attachments/assets/47ba6097-6360-4c71-b459-af3f1ed24aaf" />
 

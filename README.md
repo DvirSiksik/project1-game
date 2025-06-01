@@ -51,7 +51,6 @@ project1_game/
 │   ├── drawable/
 │   └── values/
 
-
 ## 🛠️ Technologies Used
 
 - Kotlin

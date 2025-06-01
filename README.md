@@ -31,6 +31,7 @@ An Android-based **endless runner game** where the player moves between 5 lanes,
 <img width="304" alt="Screenshot 2025-06-01 at 10 57 28" src="https://github.com/user-attachments/assets/47ba6097-6360-4c71-b459-af3f1ed24aaf" />
 ## 🧱 Project Structure
 
+```plaintext
 project1_game/
 ├── activities/
 │   ├── MainActivity.kt
@@ -50,6 +51,7 @@ project1_game/
 │   ├── layout/
 │   ├── drawable/
 │   └── values/
+```
 
 ## 🛠️ Technologies Used
 

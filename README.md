@@ -24,6 +24,8 @@ An Android-based **endless runner game** where the player moves between 5 lanes,
 - ⚙️ **Settings screen** to toggle sensor mode, game speed, sound, etc.
 - 
 📸 Screenshots
+```
+
 <img width="62" alt="Screenshot 2025-06-01 at 10 56 34" src="https://github.com/user-attachments/assets/e84751e4-3457-4cb9-b1e4-68630bf02522" />
 <img width="280" alt="Screenshot 2025-06-01 at 10 56 45" src="https://github.com/user-attachments/assets/33b1803b-20e7-4906-9f37-0c5d18dee9d4" />
 <img width="286" alt="Screenshot 2025-06-01 at 10 57 00" src="https://github.com/user-attachments/assets/25b17dcd-3383-408c-b54f-59492d85c69a" />
